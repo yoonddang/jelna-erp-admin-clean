@@ -1,0 +1,23 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.shipping-page {
+  @include m.container();
+  display: grid;
+  gap: 16px;
+}
+
+.midmenu {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.midmenu__btn {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid v.$border;
+  &--active {
+    background: #000;
+    color: #fff;
+  }
+}
