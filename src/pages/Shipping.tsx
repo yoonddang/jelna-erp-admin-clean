@@ -1,4 +1,3 @@
-import React from "react";
 import ShippingManager from "../features/shipping/ShippingManager";
 
 export default function Shipping() {

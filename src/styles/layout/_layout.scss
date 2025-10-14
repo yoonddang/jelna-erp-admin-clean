@@ -1,25 +1,60 @@
 @use "../variables" as v;
 
-.app-root { min-height: 100vh; background: v.$bg; }
+body {
+  background: v.$bg;
+}
+
+.app-root {
+  min-height: 100vh;
+  background: v.$bg;
+}
 
 .app-header {
-  position: sticky; top: 0;
-  background: rgba(255,255,255,.8);
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, .8);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid v.$border;
   z-index: 10;
 }
 
 .app-header__inner {
-  max-width: v.$app-max; margin: 0 auto;
-  display: flex; gap: 12px; align-items: center;
+  max-width: v.$app-max;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
   padding: 12px 16px;
 }
 
-.app-nav { display: flex; gap: 8px; }
-.nav-link { padding: 8px 12px; border-radius: 12px; font-size: 14px; color: v.$text; text-decoration: none; }
-.nav-link.active { background: v.$accent; color: #fff; }
+.app-nav {
+  display: flex;
+  gap: 8px;
+}
 
-.app-main { max-width: v.$app-max; margin: 0 auto; padding: 16px; }
+.nav-link {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: v.$text;
+  text-decoration: none;
+}
 
-.app-footer { border-top: 1px solid v.$border; font-size: 12px; color: v.$muted; padding: 16px; text-align: center; }
+.nav-link.active {
+  background: v.$accent;
+  color: #fff;
+}
+
+.app-main {
+  max-width: v.$app-max;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.app-footer {
+  border-top: 1px solid v.$border;
+  font-size: 12px;
+  color: v.$muted;
+  padding: 16px;
+  text-align: center;
+}

@@ -1,10 +1,64 @@
 @use "../variables" as v;
-.table-wrap { overflow: auto; border: 1px solid v.$border; border-radius: 12px; background: #fff; }
-.data-table { width: 100%; font-size: 12px; border-collapse: collapse; }
-.data-thead { position: sticky; top: 0; background: #f9fafb; z-index: 1; }
-.data-th { padding: 8px 12px; text-align: left; white-space: nowrap; vertical-align: bottom; }
-.sort-btn { font-weight: 600; background: transparent; border: none; cursor: pointer; }
-.sort-caret { margin-left: 6px; font-size: 11px; }
-.col-filter { width: 100%; margin-top: 6px; font-size: 11px; padding: 4px 6px; border: 1px solid v.$border; border-radius: 6px; }
-.row-match { background: v.$highlight; }
-.data-td { padding: 8px 12px; border-top: 1px solid #f3f4f6; white-space: pre-wrap; }
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid v.$border;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.data-table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+  color: black;
+}
+
+.data-thead {
+  position: sticky;
+  top: 0;
+  background: #f9fafb;
+  z-index: 1;
+}
+
+.data-th {
+  padding: 8px 12px;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: bottom;
+  input {
+    background: white;
+  }
+}
+
+.sort-btn {
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+
+.sort-caret {
+  margin-left: 6px;
+  font-size: 11px;
+}
+
+.col-filter {
+  width: 100%;
+  margin-top: 6px;
+  font-size: 11px;
+  padding: 4px 6px;
+  border: 1px solid v.$border;
+  border-radius: 6px;
+}
+
+.row-match {
+  background: v.$highlight;
+}
+
+.data-td {
+  padding: 8px 12px;
+  border-top: 1px solid #f3f4f6;
+  white-space: pre-wrap;
+}

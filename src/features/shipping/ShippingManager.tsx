@@ -4,16 +4,12 @@ import MidMenu, { MidButton } from "./components/MidMenu";
 import { downloadExcel, readExcel } from "../../utils/excel";
 import { POST_OFFICE_HEADERS } from "../../utils/postOffice";
 import { fmtDate } from "../../utils/date";
-import {
-  UnifiedRow,
-  PLATFORM_LABEL,
-  mapArrangeRow,
-  mapPaldoRow,
-  mapSmartstoreRow,
-  toPostOfficeTemplateRows,
-  parsePostOfficeResultRow,
-  Platform,
-} from "../../utils/mapping";
+// 값으로 사용하는 것들만 "일반 import"로
+import { mapArrangeRow, mapPaldoRow, mapSmartstoreRow, toPostOfficeTemplateRows, parsePostOfficeResultRow } from "../../utils/mapping";
+
+// 타입은 "type-only import"로
+import type { UnifiedRow, Platform } from "../../utils/mapping";
+
 
 type SortDir = "asc" | "desc";
 
@@ -70,7 +66,7 @@ export default function ShippingManager() {
     if (!orders.length) return alert("데이터가 없습니다.");
     const header = ["플랫폼", "서비스주문번호", "송장번호", "자체주문번호", "상품명", "수량"];
     const rows = orders.map((r) => ({
-      플랫폼: PLATFORM_LABEL[r.platform] || r.platform,
+      플랫폼: r.serviceName,
       서비스주문번호: r.platformOrderId,
       송장번호: r.trackingNo,
       자체주문번호: r.internalOrderId,

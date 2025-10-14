@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform } from "../../utils/mapping";
+import type { Platform } from "../../../utils/mapping";
 
 export default function UploadControls(props: {
   onUpload: (e: React.ChangeEvent<HTMLInputElement>, platform: Platform) => void;
