@@ -3,3 +3,6 @@
 @use "layout/layout";
 @use "components/table";
 @use "pages/shipping";
+
+/* updated rows highlight */
+.row-updated { background: #e6ffed; }

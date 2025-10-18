@@ -2,11 +2,16 @@
 
 body {
   background: v.$bg;
+  display: flex;
+  justify-content: center;
 }
 
 .app-root {
   min-height: 100vh;
   background: v.$bg;
+  border: 1px solid v.$border;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-header {
@@ -57,4 +62,5 @@ body {
   color: v.$muted;
   padding: 16px;
   text-align: center;
+  margin-top: auto;
 }
