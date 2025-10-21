@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import * as ReactWindow from "react-window";
 import type { UnifiedRow } from "../utils/mapping";
 import "../styles/global.scss";
 
-const List = ReactWindow.FixedSizeList;
+import * as ReactWindow from 'react-window';
+const List = (ReactWindow as any).FixedSizeList;
 
 type SortDir = "asc" | "desc";
 

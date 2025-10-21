@@ -51,7 +51,7 @@ export default function ShippingManager() {
     const file = e.target.files?.[0];
     if (!file) return;
     const rows = await readExcel(file);
-    const pairs = rows.map(parsePostOfficeResultRow).filter((p: any) => p.internalOrderId && p.trackingNo);
+    const pairs = rows.map(parsePostOfficeResultRow).filter((p: any) => p.internalOrderId || p.trackingNo);
     if (!pairs.length) {
       alert("매핑 가능한 데이터가 없습니다 (자체주문번호/송장번호).");
       e.target.value = "";

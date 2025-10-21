@@ -99,22 +99,21 @@ export function mapSmartstoreRow(raw: any): UnifiedRow {
 
 export function toPostOfficeTemplateRows(unified: UnifiedRow[]) {
   return unified.map((r) => ({
-    "수취인명": r.receiverName,
-    "수취인 우편번호": r.zipcode,
-    "수취인 주소": r.receiverAddress,
-    "수취인 이동통신": "",
-    "수취인 전화번호": r.receiverPhone,
+    "보내는사람 (주문자)": r.buyerName?.trim() !== '' ? r.buyerName : r.receiverName,
+    "주문자 연락처": r.buyerPhone,
+    "받는분": r.receiverName,
+    "우편번호": r.zipcode,
+    "받는분 주소": r.receiverAddress,
+    "받는분 연락처": r.receiverPhone,
     "상품명": r.productName,
-    "박스단위": "",
-    "부피단위": "",
-    "배송 메시지": r.internalOrderId,
-    "주문자명": r.buyerName,
     "수량": r.qty,
+    "빈칸": "",
+    "배송메시지": r.internalOrderId,
   }));
 }
 
 export function parsePostOfficeResultRow(raw: any) {
-  const internalOrderId = String(raw["배송 메시지"] || raw["internalOrderId"] || "").trim();
+  const internalOrderId = String(raw["배송메세지"] || raw["internalOrderId"] || "").trim();
   const trackingNo = String(raw["송장번호"] || raw["trackingNo"] || "").trim();
   return { internalOrderId, trackingNo };
 }
