@@ -65,3 +65,10 @@
   border-top: 1px solid #f3f4f6;
   white-space: pre-wrap;
 }
+/* 송장번호 매핑된 행 강조 */
+tr.highlighted-row,
+.row-match.highlighted-row {
+  background-color: #e6f3ff !important;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
