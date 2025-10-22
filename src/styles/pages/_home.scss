@@ -1,0 +1,29 @@
+@use "../variables" as v;
+
+.home-page {
+  &__title {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: v.$muted;
+  }
+
+  &__illustration-box {
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid v.$border;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__illustration {
+    max-width: 100%;
+    height: auto;
+  }
+}
