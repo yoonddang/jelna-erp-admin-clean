@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# Jelna Farm Admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jelna Farm Admin is a React + TypeScript dashboard that helps Jelna Farm teams manage crops, inventory, shipping, and customer orders from a single workspace.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn install
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open the development server in your browser and you will be greeted with the Jelna Farm navigation experience. The main sections of the admin include:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **홈** – Overview of current farm operations.
+- **재고관리** – Manage harvested produce, supplies, and stock levels.
+- **배송관리** – Track outbound shipments and delivery schedules.
+- **주문조회** – Review customer orders and fulfillment status.
+- **상품관리** – Maintain the Jelna Farm product catalog.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Available scripts
+
+The project is powered by Vite. The most common scripts are:
+
+- `yarn dev` – Start the development server.
+- `yarn build` – Generate a production build.
+- `yarn preview` – Preview the production build locally.
+- `yarn lint` – Run ESLint across the codebase.
+
+## Project structure
+
 ```
+src/
+├── pages/        # Feature pages for each admin section
+├── routes/       # Application routing
+└── styles/       # Global styles and variables
+```
+
+Feel free to customize the modules to match Jelna Farm's operational needs.
