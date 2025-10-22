@@ -19,7 +19,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div className="app-root">
       <header className="app-header">
         <div className="app-header__inner">
-          <div style={{ fontWeight: 800 }}>JELNA ERP Admin</div>
+          <div style={{ fontWeight: 800 }}>Jelna Farm Admin</div>
           <nav className="app-nav">
             {navItems.map((n) => (
               <NavLink key={n.to} to={n.to} className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>{n.label}</NavLink>
@@ -28,7 +28,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
       <main className="app-main">{children}</main>
-      <footer className="app-footer">© {new Date().getFullYear()} JELNA</footer>
+      <footer className="app-footer">© {new Date().getFullYear()} Jelna Farm · Fresh from our fields</footer>
     </div>
   );
 }
