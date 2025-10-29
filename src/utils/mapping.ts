@@ -16,6 +16,7 @@ export type UnifiedRow = {
   zipcode: string;                // 우편번호
   deliveryMessage: string | null; // 배송 메시지
   productName: string;            // 상품명
+  optionName: string;            // 옵션명
   qty: number;                    // 수량
   trackingNo: string | null;      // 송장번호
 };
@@ -62,6 +63,7 @@ export function mapArrangeRow(raw: any): UnifiedRow {
     zipcode: String(raw["우편번호"] ?? ""),
     deliveryMessage: (raw["배송메시지"] ?? null) as string | null,
     productName: String(raw["상품명"] ?? ""),
+    optionName: null,
     qty: Number(raw["수량"] ?? 1),
     trackingNo: (raw["송장번호"] ?? null) as string | null,
   };
@@ -90,6 +92,7 @@ export function mapPaldoRow(raw: any): UnifiedRow {
     zipcode: String(raw["우편번호"] ?? ""),
     deliveryMessage: (raw["배송요청사항"] ?? null) as string | null,
     productName: String(raw["상품명"] ?? ""),
+    optionName: String(raw["옵션명"] ?? ""),
     qty: Number(raw["수량"] ?? 1),
     trackingNo: (raw["송장번호"] ?? null) as string | null,
   };
@@ -118,6 +121,7 @@ export function mapSmartstoreRow(raw: any): UnifiedRow {
     zipcode: String(raw["우편번호"] ?? ""),
     deliveryMessage: (raw["배송메시지"] ?? null) as string | null,
     productName: String(raw["상품명"] ?? ""),
+    optionName: String(raw["옵션정보"] ?? ""),
     qty: Number(raw["수량"] ?? 1),
     trackingNo: (raw["송장번호"] ?? null) as string | null,
   };
@@ -131,7 +135,7 @@ export function toPostOfficeTemplateRows(unified: UnifiedRow[]) {
     "우편번호": r.zipcode,
     "받는분 주소": r.receiverAddress,
     "받는분 연락처": r.receiverPhone,
-    "상품명": r.productName,
+    "상품명": ("어레인지" == r.serviceName ? "" : "[" + r.serviceName + "] - " + r.optionName + " (" + r.qty + "개)"),
     "수량": r.qty,
     "빈칸": "",
     "배송메시지": r.internalOrderId,

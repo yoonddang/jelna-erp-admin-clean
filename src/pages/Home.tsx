@@ -1,4 +1,4 @@
-const homeIllustration = new URL("../assets/home-illustration.svg", import.meta.url).href;
+const homeIllustration = new URL("../assets/Gemini_Generated_Image_da7eylda7eylda7e.png", import.meta.url).href;
 
 export default function Home() {
   return (

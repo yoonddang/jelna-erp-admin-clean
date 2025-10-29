@@ -114,7 +114,7 @@ export default function ShippingManager() {
             "배송사": "우체국택배",
             "택배사": "우체국택배",
             "송장번호": r.trackingNo,
-            "상품명": r.productName,
+            "상품명": ("어레인지" == r.serviceName ? "" : "[" + r.serviceName + "] - " + r.optionName + " (" + r.qty + "개)"),
             "수량": r.qty,
         }));
         // ✅ [수정] 네 번째 인자로 시트명 "발송처리"를 추가합니다.
@@ -124,14 +124,37 @@ export default function ShippingManager() {
     /** ✅ 배송정보 다운로드 */
     const handleDownloadShippingInfo = () => {
         if (!orders.length) return alert("데이터가 없습니다.");
-        const header = ["주문번호", "개별 주문번호", "배송사", "송장번호"];
+        const header = [
+            "플랫폼",
+            "주문번호",
+            "개별 주문번호",
+            "상품주문번호",
+            "상품(표기)",
+            "보내는사람 (주문자)",
+            "주문자 연락처",
+            "우편번호",
+            "받는분 주소",
+            "받는분 연락처",
+            "받는분",
+            "상품(포장)",
+            "송장번호",
+        ];
         const rows = orders
             .filter((r) => r.trackingNo)
             .map((r) => ({
-                주문번호: r.platformOrderId, // 팔도감 주문번호
-                개별주문번호: r.internalOrderId,
-                배송사: "우체국택배",
-                송장번호: r.trackingNo,
+                "플랫폼": r.serviceName,
+                "주문번호": r.platformOrderId,
+                "개별 주문번호": r.platformProductOrderId,
+                "상품주문번호": r.platformProductOrderId,
+                "상품(표기)": r.productName,
+                "보내는사람 (주문자)": r.buyerName?.trim() !== '' ? r.buyerName : r.receiverName,
+                "주문자 연락처": r.buyerPhone,
+                "우편번호": r.zipcode,
+                "받는분 주소": r.receiverAddress,
+                "받는분 연락처": r.receiverPhone,
+                "받는분": r.receiverName,
+                "상품(포장)": ("어레인지" == r.serviceName ? "" : "[" + r.serviceName + "] - " + r.optionName + " (" + r.qty + "개)"),
+                "송장번호": r.trackingNo,
             }));
 
         if (!rows.length) return alert("송장번호가 매핑된 주문이 없습니다.");

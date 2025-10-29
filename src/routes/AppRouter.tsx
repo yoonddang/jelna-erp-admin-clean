@@ -19,7 +19,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div className="app-root">
       <header className="app-header">
         <div className="app-header__inner">
-          <div style={{ fontWeight: 800 }}>JELNA ERP Admin</div>
+          <div><a className="nav-link" href="/" style={{ fontWeight: 800 }}>JELNA ERP Admin</a></div>
           <nav className="app-nav">
             {navItems.map((n) => (
               <NavLink key={n.to} to={n.to} className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>{n.label}</NavLink>

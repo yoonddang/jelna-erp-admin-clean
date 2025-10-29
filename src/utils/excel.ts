@@ -23,6 +23,19 @@ export function downloadExcel(filename: string, rows: any[], headerOrder: string
   // 참고: json_to_sheet에 header 옵션을 사용하면 아래 라인은 보통 필요 없으나, 기존 로직 유지를 위해 남겨둡니다.
   XLSX.utils.sheet_add_aoa(ws, [headerOrder], { origin: "A1" });
 
+  // ✅ 열 너비 설정
+  // 1️⃣ 자동 길이 계산 (내용에 따라 열 너비 조정)
+  const colWidths = headerOrder.map((header) => {
+    // 각 열의 최대 문자열 길이 계산
+    const maxLen = Math.max(
+        header.length,
+        ...rows.map((r) => String(r[header] || "").length)
+    );
+    return { wch: Math.min(maxLen + 2, 40) + 1 }; // 최대 40자로 제한
+  });
+
+  ws["!cols"] = colWidths;
+
   const wb = XLSX.utils.book_new();
 
   // ✅ [수정] 하드코딩된 "Sheet1" 대신 인자로 받은 sheetName을 사용합니다.
